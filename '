@@ -1,0 +1,114 @@
+"""""" BEGIN VUNDLER SHIT """"""""
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=/Users/dan/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+
+""""""" END VUNDLER SHIT """"""""
+
+let mapleader=" "
+
+" NERDTree stuff
+map <leader>d :NERDTreeToggle<CR>
+map <leader>D :NERDTreeFind<CR>
+
+"Airline stuff
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_powerline_fonts = 1
+set laststatus=2
+
+" Show line numbers
+set number
+
+" Blink cursor on error instead of beeping
+set visualbell
+
+" highlight line cursor is on
+"set cursorline
+
+" Toggling cursor shape based on insert-mode versus normal-mode
+" ---
+" tmux and iTerm2 cursor fun
+" via @andyfowler https://gist.github.com/1195581
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
+
+" Turn on syntax highlighting
+syntax on
+filetype on
+
+set timeoutlen=1000 ttimeoutlen=0
+
+"set t_Co=256
+"set background=dark
+"let g:solarized_termcolors=256
+" https://github.com/chriskempson/tomorrow-the me
+colorscheme Tomorrow-Night
+"colorscheme one-dark
+"colorscheme monok0ai
+
+set clipboard=unnamed
+
+set hidden
+set history=100
+
+nnoremap <leader>s :source ~/.vimrc<CR>
+nnoremap <leader>f :Files<CR>
+
+" quicker split navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" buffers
+nnoremap <Tab> :bn<CR>
+nnoremap <S-Tab> :bp<CR>
+nnoremap <leader>n :new<CR>
+
+" faster j and k
+noremap <S-j> :5j
+noremap <S-k> :5k
