@@ -55,3 +55,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGB_DI_PIN D3
 #define RGBLIGHT_ANIMATIONS
 #define RGBLED_NUM 16    // Number of LEDs
+
+#define DISABLE_JTAG
